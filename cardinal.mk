@@ -20,12 +20,12 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
 $(call inherit-product, device/oneplus/oneplus3/device.mk)
 
 # Enhanced NFC
-$(call inherit-product, vendor/tipsy/config/nfc_enhanced.mk)
+$(call inherit-product, vendor/cardinal/config/nfc_enhanced.mk)
 
-# Inherit some common Tipsy stuff.
-$(call inherit-product, vendor/tipsy/config/common_full_phone.mk)
+# Inherit some common Cardinal-AOSP stuff.
+$(call inherit-product, vendor/cardinal/common.mk)
 
-PRODUCT_NAME := tipsy_oneplus3
+PRODUCT_NAME := cardinal_oneplus3
 PRODUCT_DEVICE := oneplus3
 PRODUCT_MANUFACTURER := OnePlus
 PRODUCT_BRAND := OnePlus
@@ -40,6 +40,13 @@ PRODUCT_BUILD_PROP_OVERRIDES += \
     BUILD_FINGERPRINT=OnePlus/OnePlus3/OnePlus3:6.0.1/MMB29M/362280:user/release-keys \
     PRIVATE_BUILD_DESC="OnePlus3-user 6.0.1 MMB29M 24 dev-keys"
 
-PRODUCT_SYSTEM_PROPERTY_BLACKLIST += ro.product.model
+# PRODUCT_SYSTEM_PROPERTY_BLACKLIST += ro.product.model
 
 TARGET_VENDOR := oneplus
+
+# Build Official
+CARDINAL_RELEASE := true
+
+# Add Maintainer Prop 
+PRODUCT_BUILD_PROP_OVERRIDES += \
+        DEVICE_MAINTAINERS="Aditya Garg (PhenomX1998)"
